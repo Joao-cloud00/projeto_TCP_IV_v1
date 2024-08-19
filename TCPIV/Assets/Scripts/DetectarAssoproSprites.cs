@@ -17,7 +17,12 @@ public class DetectarAssoproSprites : MonoBehaviour
     private float valorTotal = 50f; // Valor inicial
     private float valorMaximo = 100f;
     private bool jogoAtivo = true; // Estado do jogo
-    public Sprite[] sprites; // Array de Sprites para os diferentes estados visuais
+    public Sprite spriteZero; // Sprite para valor 0
+    public Sprite spriteUm; // Sprite para valor de 1 até 33
+    public Sprite spriteDois; // Sprite para valor de 34 até 66
+    public Sprite spriteTres; // Sprite para valor de 67 até 99
+    public Sprite spriteCem; // Sprite para valor 100
+    public GameObject timer;
 
     void Start()
     {
@@ -113,14 +118,33 @@ public class DetectarAssoproSprites : MonoBehaviour
 
     void AtualizarSprite()
     {
-        int index = Mathf.Clamp((int)(valorTotal / 5), 0, sprites.Length - 1);
-        imagem.sprite = sprites[index];
+        if (valorTotal < 1)
+        {
+            imagem.sprite = spriteZero;
+        }
+        else if (valorTotal > 0 && valorTotal <= 33)
+        {
+            imagem.sprite = spriteUm;
+        }
+        else if (valorTotal > 33 && valorTotal <= 66)
+        {
+            imagem.sprite = spriteDois;
+        }
+        else if (valorTotal > 66 && valorTotal < 99.9f)
+        {
+            imagem.sprite = spriteTres;
+        }
+        else if (valorTotal > 99.9f)
+        {
+            imagem.sprite = spriteCem;
+        }
     }
 
     void PerderJogo()
     {
         jogoAtivo = false; // Desativa o jogo
         Debug.Log("Você perdeu o jogo!");
+        timer.SetActive(false);
         // Aqui você pode adicionar código para exibir uma mensagem na tela ou realizar outras ações
     }
 }
