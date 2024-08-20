@@ -23,6 +23,7 @@ public class DetectarAssoproSprites : MonoBehaviour
     public Sprite spriteTres; // Sprite para valor de 67 até 99
     public Sprite spriteCem; // Sprite para valor 100
     public GameObject timer;
+    public GameObject castelo;
 
     void Start()
     {
