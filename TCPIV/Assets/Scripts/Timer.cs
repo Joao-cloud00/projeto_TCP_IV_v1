@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private TMP_Text txtTime;
+    [SerializeField] private Text txtTime;
     [SerializeField] private float timeValue;
 
 
