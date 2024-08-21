@@ -20,7 +20,7 @@ public class RotacaoDispositivo : MonoBehaviour
 
     private float rotacaoIdeal; // Valor médio entre o limite mínimo e máximo
     private float tempoNaPosicaoCorreta; // Tempo que o jogador ficou na posição correta
-    private float dificuldade = 0;
+    public float dificuldade = 2;
 
     private float rotacaoDispositivoZ; // Rotação real do dispositivo
 
@@ -82,7 +82,10 @@ public class RotacaoDispositivo : MonoBehaviour
             else if (rotacaoDispositivoZ >= rotacaoIdeal - margemRotacao && rotacaoDispositivoZ <= rotacaoIdeal + margemRotacao) // Verifica se está dentro da margem
             {
                 tempoNaPosicaoCorreta += Time.deltaTime;
-
+                if (imagemDeStatus != null)
+                {
+                    imagemDeStatus.sprite = imagemCorreta; // Muda para a imagem correta
+                }
                 // Verifica se o tempo na posição correta foi suficiente
                 if (tempoNaPosicaoCorreta >= tempoParaConfirmarRotacao)
                 {
@@ -93,10 +96,10 @@ public class RotacaoDispositivo : MonoBehaviour
                     {
                         imagemParaGirar.rectTransform.rotation = rotacaoOriginalImagem;
                     }
-                    if (imagemDeStatus != null)
-                    {
-                        imagemDeStatus.sprite = imagemCorreta; // Muda para a imagem correta
-                    }
+                    //if (imagemDeStatus != null)
+                    //{
+                    //    imagemDeStatus.sprite = imagemCorreta; // Muda para a imagem correta
+                    //}
 
                     rotacaoDispositivoZ = 0f; // Zera a rotação do jogador
                 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -18,7 +19,11 @@ public class Timer : MonoBehaviour
 
     private void DiminuirTempo()
     {
-        if (timeValue < 0f) return;
+        if (timeValue <= 0f)
+        {
+            SceneManager.LoadScene(1);
+           
+        }
 
         if (timeValue > 0f)
         {

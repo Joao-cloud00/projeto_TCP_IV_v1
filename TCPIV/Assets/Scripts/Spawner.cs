@@ -34,10 +34,12 @@ public class MoveLeft : MonoBehaviour
 {
     public float speed = 5f;
     private DetectarAssoproSprites detectarAssoproSprites;
+    private RotacaoDispositivo RotacaoDispositivo;
 
     private void Start()
     {
         detectarAssoproSprites = FindObjectOfType<DetectarAssoproSprites>();
+        RotacaoDispositivo = FindAnyObjectByType<RotacaoDispositivo>();
     }
 
     void Update()
@@ -51,6 +53,12 @@ public class MoveLeft : MonoBehaviour
         if (collision.gameObject.tag == "Castelo")
         {
             detectarAssoproSprites.taxaDecremento *= 2;
+            Destroy(gameObject);
+            Debug.Log("Gatinho");
+        }
+        if(collision.gameObject.tag == "Roda")
+        {
+            RotacaoDispositivo.dificuldade *= 2;
             Destroy(gameObject);
             Debug.Log("Gatinho");
         }
