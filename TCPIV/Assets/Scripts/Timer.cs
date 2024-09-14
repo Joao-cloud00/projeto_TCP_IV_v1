@@ -8,17 +8,29 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private Text txtTime;
     [SerializeField] private float timeValue;
-
+    private int timer;
+    public DetectarAssoproSprites detectarAssoproSprites;
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("DiminuirTempo", 1f, 1f);
+        detectarAssoproSprites = FindObjectOfType<DetectarAssoproSprites>();
 
+    }
+
+    private void Update()
+    {
+        if(timer >= 5)
+        {
+            timer = 0;
+            detectarAssoproSprites.taxaDecremento += 1;
+        }
     }
 
     private void DiminuirTempo()
     {
+        timer += 1;
         if (timeValue <= 0f)
         {
             SceneManager.LoadScene(2);

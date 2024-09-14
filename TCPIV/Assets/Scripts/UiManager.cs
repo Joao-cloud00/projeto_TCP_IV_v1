@@ -6,32 +6,38 @@ using UnityEngine.UI;
 public class VolumeSliderController : MonoBehaviour
 {
     public Slider volumeSlider;
-
-    private AndroidJavaObject audioManager;
+    public Text texto; // Referência ao objeto de texto na UI
+    public float tempoExibicao = 3f; // Duração em segundos para o texto ficar visível
+    public DetectarAssoproSprites detectarAssoproSprites;
 
     void Start()
     {
-        // Inicializa o AudioManager do Android
-        audioManager = new AndroidJavaObject("android.media.AudioManager");
+        detectarAssoproSprites = FindObjectOfType<DetectarAssoproSprites>();
+        // Inicialmente esconde o texto
+        texto.gameObject.SetActive(false);
+
+        // Chama a função para exibir o texto
+        StartCoroutine(ExibirTextoTemporario());
 
         // Define o valor inicial do slider para o volume atual do dispositivo
-        volumeSlider.value = GetDeviceVolume();
+        volumeSlider.value = detectarAssoproSprites.valorTotal; 
     }
 
     void Update()
     {
         // Atualiza o valor do slider para refletir o volume atual do dispositivo
-        volumeSlider.value = GetDeviceVolume();
+        volumeSlider.value = detectarAssoproSprites.valorTotal;
     }
-
-    float GetDeviceVolume()
+    private IEnumerator ExibirTextoTemporario()
     {
-        // Obtém o volume do dispositivo Android usando o AudioManager
-        int currentVolume = audioManager.Call<int>("getStreamVolume", 3); // AudioManager.STREAM_MUSIC = 3
-        int maxVolume = audioManager.Call<int>("getStreamMaxVolume", 3); // AudioManager.STREAM_MUSIC = 3
+        // Exibe o texto
+        texto.gameObject.SetActive(true);
 
-        float deviceVolume = (float)currentVolume / maxVolume;
-        return deviceVolume;
+        // Espera pelo tempo determinado
+        yield return new WaitForSeconds(tempoExibicao);
+
+        // Esconde o texto após o tempo
+        texto.gameObject.SetActive(false);
     }
 }
 

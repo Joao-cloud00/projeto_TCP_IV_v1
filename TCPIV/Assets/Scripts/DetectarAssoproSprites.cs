@@ -14,7 +14,7 @@ public class DetectarAssoproSprites : MonoBehaviour
     public float intervaloDecremento = 1.0f; // Intervalo de decremento em segundos
     private float tempoDesdeUltimoDecremento = 0f;
     public float limiteAssoproForte = 0.2f; // Limite para detectar um assopro forte
-    private float valorTotal = 50f; // Valor inicial
+    public float valorTotal = 50f; // Valor inicial
     private float valorMaximo = 100f;
     private bool jogoAtivo = true; // Estado do jogo
     public Sprite spriteZero; // Sprite para valor 0
