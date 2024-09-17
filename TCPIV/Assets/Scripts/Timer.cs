@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private float timeValue;
     private int timer;
     public DetectarAssoproSprites detectarAssoproSprites;
+    public int indexScene;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class Timer : MonoBehaviour
         timer += 1;
         if (timeValue <= 0f)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(indexScene);
            
         }
 

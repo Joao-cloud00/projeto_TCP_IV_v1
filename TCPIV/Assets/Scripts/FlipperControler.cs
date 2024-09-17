@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class FlipperControler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 initialPosition;
+
+
+    private void Awake()
     {
-        
+        initialPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if ((Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.A)))
+        {
+            GetComponent<HingeJoint2D>().useMotor = true;
+            print("Flippers ON");
+        }
+        else
+        {
+            GetComponent<HingeJoint2D>().useMotor = false;
+            print("Flippers OFF");
+            transform.position = initialPosition;
+        }
+
+
     }
 }

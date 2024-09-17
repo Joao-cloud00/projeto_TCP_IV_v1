@@ -1062,6 +1062,7 @@ MonoBehaviour:
   txtTime: {fileID: 615738986}
   timeValue: 30
   detectarAssoproSprites: {fileID: 0}
+  indexScene: 3
 --- !u!114 &1454430977
 MonoBehaviour:
   m_ObjectHideFlags: 0
