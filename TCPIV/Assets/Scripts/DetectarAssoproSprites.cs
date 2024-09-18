@@ -25,6 +25,8 @@ public class DetectarAssoproSprites : MonoBehaviour
     public GameObject timer;
     public GameObject castelo;
 
+    [SerializeField] private GameObject telaFimdeJogo;
+
     void Start()
     {
         InicializarMicrofone();
@@ -144,8 +146,8 @@ public class DetectarAssoproSprites : MonoBehaviour
     void PerderJogo()
     {
         jogoAtivo = false; // Desativa o jogo
-        Debug.Log("Você perdeu o jogo!");
         timer.SetActive(false);
+        telaFimdeJogo.SetActive(true);
         // Aqui você pode adicionar código para exibir uma mensagem na tela ou realizar outras ações
     }
 }

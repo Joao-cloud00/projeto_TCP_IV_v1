@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Castelo
   - Roda
+  - Lixo
   layers:
   - Default
   - TransparentFX

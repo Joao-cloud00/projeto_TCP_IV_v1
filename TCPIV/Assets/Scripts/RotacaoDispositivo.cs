@@ -11,7 +11,7 @@ public class RotacaoDispositivo : MonoBehaviour
     public float tempoParaConfirmarRotacao = 2f; // Tempo necessário para segurar a posição correta (segundos)
     public float margemRotacao = 5f; // Margem de erro permitida (graus)
 
-    public Image imagemParaGirar; // Imagem que será girada na tela
+    public GameObject imagemParaGirar; // Imagem que será girada na tela
     private Quaternion rotacaoOriginalImagem; // Rotação original da imagem
 
     public Image imagemDeStatus; // Imagem que será trocada com base na rotação
@@ -24,6 +24,9 @@ public class RotacaoDispositivo : MonoBehaviour
 
     private float rotacaoDispositivoZ; // Rotação real do dispositivo
 
+    [SerializeField] private GameObject telaFimdeJogo;
+    public bool posCorreta = false;
+
     void Start()
     {
         // Calcula o valor médio entre o limite mínimo e máximo
@@ -32,7 +35,7 @@ public class RotacaoDispositivo : MonoBehaviour
         // Salva a rotação original da imagem
         if (imagemParaGirar != null)
         {
-            rotacaoOriginalImagem = imagemParaGirar.rectTransform.rotation;
+            rotacaoOriginalImagem = imagemParaGirar.transform.rotation;
         }
 
         // Inicializa a rotação real do dispositivo
@@ -48,6 +51,7 @@ public class RotacaoDispositivo : MonoBehaviour
         if (imagemDeStatus != null)
         {
             imagemDeStatus.sprite = imagemOriginal;
+            posCorreta = false;
         }
     }
 
@@ -67,7 +71,7 @@ public class RotacaoDispositivo : MonoBehaviour
             // Gira a imagem conforme a rotação do dispositivo
             if (imagemParaGirar != null)
             {
-                imagemParaGirar.rectTransform.rotation = Quaternion.Euler(0, 0, rotacaoDispositivoZ);
+                imagemParaGirar.transform.rotation = Quaternion.Euler(0, 0, rotacaoDispositivoZ);
             }
 
             // Verifica se a rotação está dentro dos limites estabelecidos
@@ -85,6 +89,7 @@ public class RotacaoDispositivo : MonoBehaviour
                 if (imagemDeStatus != null)
                 {
                     imagemDeStatus.sprite = imagemCorreta; // Muda para a imagem correta
+                    posCorreta = true;
                 }
                 // Verifica se o tempo na posição correta foi suficiente
                 if (tempoNaPosicaoCorreta >= tempoParaConfirmarRotacao)
@@ -94,7 +99,8 @@ public class RotacaoDispositivo : MonoBehaviour
                     // Retorna a imagem para a rotação original e zera a rotação do dispositivo
                     if (imagemParaGirar != null)
                     {
-                        imagemParaGirar.rectTransform.rotation = rotacaoOriginalImagem;
+                        imagemParaGirar.transform.rotation = rotacaoOriginalImagem;
+                        
                     }
                     //if (imagemDeStatus != null)
                     //{
@@ -113,6 +119,7 @@ public class RotacaoDispositivo : MonoBehaviour
                 if (imagemDeStatus != null)
                 {
                     imagemDeStatus.sprite = imagemOriginal;
+                    posCorreta = false;
                 }
             }
         }
@@ -122,6 +129,7 @@ public class RotacaoDispositivo : MonoBehaviour
     void PerderJogo(string motivo)
     {
         Debug.Log("Você perdeu! " + motivo);
+        telaFimdeJogo.SetActive(true);
         // Implementar lógica para quando o jogador perde o jogo
         // Por exemplo, carregar uma nova cena ou exibir uma mensagem na tela
     }
