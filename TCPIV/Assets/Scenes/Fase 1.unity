@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imagem: {fileID: 910310132}
   textoTeste: {fileID: 368796311}
-  taxaDecremento: 1
+  taxaDecremento: 0.6
   taxaCrescimento: 1
   intervaloDecremento: 0.2
   limiteAssoproForte: 0.3
@@ -1668,7 +1668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtTime: {fileID: 2127590633}
-  timeValue: 25
+  timeValue: 15
   detectarAssoproSprites: {fileID: 0}
   indexScene: 2
 --- !u!114 &1454430977
@@ -1936,7 +1936,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00:25
+  m_Text: 00:20
 --- !u!222 &2127590634
 CanvasRenderer:
   m_ObjectHideFlags: 0

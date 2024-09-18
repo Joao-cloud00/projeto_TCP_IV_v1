@@ -13,7 +13,10 @@ public class Ball : MonoBehaviour
     private int pontuacao = 0;
     public bool _lixosColetados = false;
 
-
+    private void Awake()
+    {
+        _lixosColetados = false;
+    }
 
     void Start()
     {

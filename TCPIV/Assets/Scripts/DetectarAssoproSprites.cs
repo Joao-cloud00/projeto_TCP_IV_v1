@@ -27,6 +27,11 @@ public class DetectarAssoproSprites : MonoBehaviour
 
     [SerializeField] private GameObject telaFimdeJogo;
 
+    private void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
     void Start()
     {
         InicializarMicrofone();

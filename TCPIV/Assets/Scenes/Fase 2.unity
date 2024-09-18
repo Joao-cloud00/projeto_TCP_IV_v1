@@ -975,6 +975,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReiniciarBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 1659791778743084314, guid: cbf40a39e57bf594e999aee44e0c50ca, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1454430979}
+    - target: {fileID: 1659791778743084314, guid: cbf40a39e57bf594e999aee44e0c50ca, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReiniciarGame
+      objectReference: {fileID: 0}
     - target: {fileID: 5897203922706495909, guid: cbf40a39e57bf594e999aee44e0c50ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1758,9 +1766,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1454430973}
-  - component: {fileID: 1454430976}
   - component: {fileID: 1454430977}
   - component: {fileID: 1454430978}
+  - component: {fileID: 1454430979}
+  - component: {fileID: 1454430980}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1783,22 +1792,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1454430976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454430971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b6caf5e41d3b1c43afcee437e990888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txtTime: {fileID: 615738986}
-  timeValue: 20
-  detectarAssoproSprites: {fileID: 0}
-  indexScene: 3
 --- !u!114 &1454430977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1838,6 +1831,37 @@ MonoBehaviour:
   texto: {fileID: 1317680345}
   tempoExibicao: 3
   detectarAssoproSprites: {fileID: 0}
+--- !u!114 &1454430979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454430971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9aa718a15ab7f44fa40ec44a0b5008f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexScene: 0
+--- !u!114 &1454430980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454430971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21a666cd9bacdc41af80e8ec5747f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtTime: {fileID: 615738986}
+  timeValue: 20
+  detectarAssoproSprites: {fileID: 0}
+  indexScene: 3
+  telaFimdeJogo: {fileID: 1762868921}
+  rotacaoDispositivo: {fileID: 1454430977}
 --- !u!1 &1485506432
 GameObject:
   m_ObjectHideFlags: 0

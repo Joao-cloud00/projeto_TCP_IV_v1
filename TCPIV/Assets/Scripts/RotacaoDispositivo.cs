@@ -27,6 +27,11 @@ public class RotacaoDispositivo : MonoBehaviour
     [SerializeField] private GameObject telaFimdeJogo;
     public bool posCorreta = false;
 
+    private void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
     void Start()
     {
         // Calcula o valor médio entre o limite mínimo e máximo
@@ -129,8 +134,6 @@ public class RotacaoDispositivo : MonoBehaviour
     void PerderJogo(string motivo)
     {
         Debug.Log("Você perdeu! " + motivo);
-        Time.timeScale = 0f;
-        telaFimdeJogo.SetActive(true);
         // Implementar lógica para quando o jogador perde o jogo
         // Por exemplo, carregar uma nova cena ou exibir uma mensagem na tela
     }

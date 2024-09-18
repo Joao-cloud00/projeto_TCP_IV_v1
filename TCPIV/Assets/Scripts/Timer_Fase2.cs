@@ -4,19 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
-public class Time_UltimaFase : MonoBehaviour
+public class Timer_Fase2 : MonoBehaviour
 {
-
     [SerializeField] private Text txtTime;
     [SerializeField] private float timeValue;
     private int timer;
     public DetectarAssoproSprites detectarAssoproSprites;
     public int indexScene;
 
-    [SerializeField] private Ball ball;
-
     [SerializeField] private GameObject telaFimdeJogo;
+    [SerializeField] private RotacaoDispositivo rotacaoDispositivo;
 
     private void Awake()
     {
@@ -42,17 +39,15 @@ public class Time_UltimaFase : MonoBehaviour
     private void DiminuirTempo()
     {
         timer += 1;
-        if (timeValue <= 0f && ball._lixosColetados == true)
+        if (timeValue <= 0f && rotacaoDispositivo.posCorreta == true)
         {
             SceneManager.LoadScene(indexScene);
         }
-        else if(timeValue <= 0f && ball._lixosColetados == false)
+        else if(timeValue <= 0f && rotacaoDispositivo.posCorreta == false)
         {
             Time.timeScale = 0f;
             telaFimdeJogo.SetActive(true);
         }
-
-        
 
         if (timeValue > 0f)
         {

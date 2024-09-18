@@ -420,7 +420,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00:40
+  m_Text: 00:30
 --- !u!222 &356993639
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1512,11 +1512,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtTime: {fileID: 356993638}
-  timeValue: 40
+  timeValue: 30
   detectarAssoproSprites: {fileID: 0}
   indexScene: 4
-  _lixosColetados: {fileID: 2019129014}
-  telaFimdeJogo: {fileID: 0}
+  ball: {fileID: 2019129014}
+  telaFimdeJogo: {fileID: 2095172126}
 --- !u!1 &1460641020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,7 +2275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2095172127
 RectTransform:
   m_ObjectHideFlags: 0
