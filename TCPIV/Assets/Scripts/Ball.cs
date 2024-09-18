@@ -11,6 +11,8 @@ public class Ball : MonoBehaviour
     public float moveSpeed = 3.0f;
     public Rigidbody2D rb;
     private int pontuacao = 0;
+    public bool _lixosColetados = false;
+
 
 
     void Start()
@@ -42,6 +44,11 @@ public class Ball : MonoBehaviour
             // Aplicamos o movimento
             Vector2 movement = new Vector2(moveX, moveY);
             rb.velocity = movement * moveSpeed;
+        }
+
+        if(pontuacao >= 5)
+        {
+            _lixosColetados = true;
         }
         
     }

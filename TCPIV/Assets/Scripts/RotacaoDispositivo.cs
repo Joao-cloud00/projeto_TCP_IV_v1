@@ -129,6 +129,7 @@ public class RotacaoDispositivo : MonoBehaviour
     void PerderJogo(string motivo)
     {
         Debug.Log("Você perdeu! " + motivo);
+        Time.timeScale = 0f;
         telaFimdeJogo.SetActive(true);
         // Implementar lógica para quando o jogador perde o jogo
         // Por exemplo, carregar uma nova cena ou exibir uma mensagem na tela

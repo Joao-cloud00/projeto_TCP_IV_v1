@@ -1820,7 +1820,7 @@ MonoBehaviour:
   imagemOriginal: {fileID: 2024919016, guid: 12f4a330148130643859fe2d2b7c7573, type: 3}
   imagemCorreta: {fileID: -2135927845, guid: 12f4a330148130643859fe2d2b7c7573, type: 3}
   dificuldade: 0
-  telaFimdeJogo: {fileID: 0}
+  telaFimdeJogo: {fileID: 1762868921}
   posCorreta: 0
 --- !u!114 &1454430978
 MonoBehaviour:

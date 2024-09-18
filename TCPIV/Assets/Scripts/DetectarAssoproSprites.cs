@@ -147,6 +147,7 @@ public class DetectarAssoproSprites : MonoBehaviour
     {
         jogoAtivo = false; // Desativa o jogo
         timer.SetActive(false);
+        Time.timeScale = 0f;
         telaFimdeJogo.SetActive(true);
         // Aqui você pode adicionar código para exibir uma mensagem na tela ou realizar outras ações
     }
